@@ -23,18 +23,19 @@ html {
   --color-button: #212121;
   --color-social: #afb1b8;
   --client-icon: #afb1b8;
+  --fixed-header: 80px;
 }
 
 body {
-  background-color: var(--primary-white-color);
-  color: var(--primary-title-color);
-
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: 0.03em;
   font-size: 14px;
   line-height: 1.7;
+  color: var(--primary-title-color);
+
+  background-color: var(--primary-white-color);
 }
 
 /* Стили для страницы Студия index.html */
@@ -47,9 +48,9 @@ a {
   margin: 0;
 }
 .container {
+  width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -86,6 +87,7 @@ a {
 }
 .site-nav .link {
   position: relative;
+
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -115,6 +117,7 @@ a {
   display: block;
   width: 100%;
   height: 4px;
+
   background-color: var(--accent-color);
   border-radius: 2px;
 }
@@ -165,26 +168,38 @@ a {
   color: var(--accent-color);
 }
 .main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  width: 100%;
+  min-height: var(--fixed-header);
+
+  background-color: var(--primary-white-color);
   border-bottom: 1px solid #ececec;
 }
 /* Hero */
 .hero {
   position: relative;
+
   max-width: 1600px;
   height: 600px;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.8), rgba(47, 48, 58, 0.8)), url('../image/header.jpg');
 
+  text-align: center;
+
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.8), rgba(47, 48, 58, 0.8)), url('../image/header.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  text-align: center;
 }
 .hero-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
 }
 .hero-title {
@@ -267,14 +282,16 @@ button {
   display: block;
   margin-bottom: 30px;
   padding: 25px 100px 25px 100px;
-  border-radius: 4px;
 
   text-align: center;
+
   background-color: var(--background-icon);
+  border-radius: 4px;
 }
 .advantages-title {
   margin-top: 0px;
   margin-bottom: 10px;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -283,6 +300,7 @@ button {
 .advantages-text {
   margin-top: 0px;
   margin-bottom: 0px;
+
   font-size: 14px;
   line-height: 1.71;
   color: var(--text-color);
@@ -299,19 +317,23 @@ button {
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(0, 75%);
+
   width: 100%;
   height: 100%;
+
+  transform: translate(0, 75%);
 }
 .title-work {
   padding: 27px 82px;
   margin-top: 0px;
   margin-bottom: 0px;
+
   font-size: 14px;
   text-align: center;
   line-height: 1.14;
   color: var(--primary-white-color);
   text-transform: uppercase;
+
   background-color: rgba(47, 48, 58, 0.8);
 }
 /*Section Our Team*/
@@ -322,22 +344,25 @@ button {
   margin-right: 32px;
   padding-bottom: 24px;
 }
-.social-button {
-  padding: 0;
-  border: none;
+.social-icon {
   display: block;
+  padding: 0;
+
   width: 44px;
   height: 44px;
+
+  fill: var(--client-icon);
+  background: var(--primary-white-color);
+  border: none;
   border-radius: 50%;
   cursor: pointer;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.social-icon {
-  transition: --color1 250ms cubic-bezier(0.4, 0, 0.2, 1), --color2 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.social-icon:hover,
-.social-icon:focus {
-  --color1: var(--accent-color);
-  --color2: var(--primary-white-color);
+.social-button:hover .social-icon,
+.social-button:focus .social-icon {
+  background: var(--accent-color);
+  fill: var(--primary-white-color);
 }
 .social-list .social + .social {
   margin-left: 10px;
@@ -385,6 +410,7 @@ button {
   justify-content: center;
   width: 170px;
   height: 90px;
+
   border: 1px solid #afb1b8;
   border-radius: 4px;
 
@@ -441,9 +467,9 @@ button {
   color: var(--accent-color);
 }
 .addres {
-  color: var(--primary-white-color);
   margin-top: 8px;
   margin-bottom: 9px;
+  color: var(--primary-white-color);
 }
 .mail-footer {
   display: inline-block;
@@ -464,6 +490,7 @@ button {
 .join {
   display: inline-block;
   margin-bottom: 20px;
+
   font-weight: 700;
   line-height: 1.14;
   text-transform: uppercase;
@@ -481,8 +508,9 @@ button {
   display: block;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+
   background-position: center;
+  border-radius: 50%;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-footer-link:hover,
@@ -500,6 +528,9 @@ button {
 }
 
 /* Разметка страницы Portfolio */
+.body-portfolio {
+  padding-top: var(--fixed-header);
+}
 .section-portfolio {
   margin-top: 93px;
   margin-bottom: 94px;
@@ -514,14 +545,16 @@ button {
   margin-left: 8px;
 }
 .portfolio-button {
-  width: auto;
   padding: 6px 22px;
+  width: auto;
   height: 38px;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.6;
   text-align: center;
   color: var(--color-button);
+
   background: var(--background-button);
   border: 1px solid transparent;
   border-radius: 4px;
@@ -565,8 +598,8 @@ button {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 .portfolio-thumb {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 .portfolio-thumb img {
   display: block;
@@ -584,6 +617,7 @@ button {
 .portfolio-title {
   margin-top: 0px;
   margin-bottom: 0px;
+
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
@@ -593,6 +627,7 @@ button {
 .portfolio-subtitle {
   margin-top: 0px;
   margin-bottom: 0px;
+
   font-size: 16px;
   line-height: 1.8;
   color: var(--text-color);
@@ -601,10 +636,11 @@ button {
   margin-top: 0;
   margin-bottom: 0;
   padding: 63px 24px;
+
   font-size: 18px;
   line-height: 1.6;
   color: var(--primary-white-color);
-  background: rgba(33, 150, 243, 0.9);
+  background-color: rgba(33, 150, 243, 0.9);
 }
 .project:hover .portfolio-overlay {
   transform: translate(-50%, -50%);
